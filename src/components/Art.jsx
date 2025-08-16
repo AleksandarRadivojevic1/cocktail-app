@@ -27,7 +27,7 @@ const Art = () => {
 
     return (
         <div id="art">
-            <div className="container mx-auto h-full my-4 py-2">
+            <div className="container mx-auto h-full">
                 <h2 className="will-fade">The ART</h2>
 
                 <div className="content">

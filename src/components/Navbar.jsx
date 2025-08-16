@@ -20,13 +20,13 @@ const Navbar = () => {
     return (
         <nav>
             <div>
-                <a href="#hero" className="flex items-center gap-2 mx-4">
+                <a href="#hero" className="flex items-center gap-2 ">
                     {/*<img src="/images/logo.png" alt="logo"/>*/}
-                    <p>
+                    <p className="ml-2">
                         Murphy's Pub
                     </p>
                 </a>
-                <ul className="mx-4">
+                <ul>
                     {navLinks.map(link => (
                         <li key={link.id}>
                             <a href={`#${link.id}`}>{link.title}</a>
