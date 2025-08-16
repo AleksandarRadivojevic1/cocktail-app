@@ -49,25 +49,35 @@ const Hero = () => {
             .to('.right-leaf',{ y: 200} , 0)
             .to('.left-leaf',{ y: -200} , 0)
 
-        const startValue = isMobile?'top 50%' : 'center 60%'
-        const endValue = isMobile? '120% top': 'bottom top'
 
-        //Cocktail video animation
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "video",
-                start: startValue,
-                end: endValue,
-                scrub: true,
-                pin: true,
-            },
-        });
+        if (!isMobile) {
+            const startValue = 'center 60%';
+            const endValue = 'bottom top';
 
-        videoRef.current.onloadedmetadata = () => {
-            tl.to(videoRef.current, {
-                currentTime: videoRef.current.duration,
+            //Desktop video animation
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "video",
+                    start: startValue,
+                    end: endValue,
+                    scrub: true,
+                    pin: true,
+                },
             });
-        };
+
+            videoRef.current.onloadedmetadata = () => {
+                tl.to(videoRef.current, {
+                    currentTime: videoRef.current.duration,
+                });
+            };
+        } else {
+            //Loop on mobile devices
+            if (videoRef.current) {
+                videoRef.current.loop = true;
+                videoRef.current.play().catch(() => {});
+
+            }
+        }
 
 
     }, [])
@@ -97,17 +107,15 @@ const Hero = () => {
                     </div>
                 </div>
             </section>
-            {!isMobile && (
-                <div className="video absolute inset-0">
-                    <video
-                        ref={videoRef}
-                        muted
-                        playsInline
-                        preload="auto"
-                        src="/videos/output.mp4"
-                    />
-                </div>
-            )}
+            <div className="video absolute inset-0">
+                <video
+                    ref={videoRef}
+                    muted
+                    playsInline
+                    preload="auto"
+                    src="/videos/output.mp4"
+                />
+            </div>
         </>
     )
 }
