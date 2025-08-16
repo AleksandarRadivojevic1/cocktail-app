@@ -10,7 +10,7 @@ const Cocktails = () => {
                 trigger: '#cocktails',
                 start: 'top 30%',
                 end: 'bottom 80%',
-                scrub: true
+                scrub: true,
             }
         })
 
@@ -27,43 +27,41 @@ const Cocktails = () => {
 
     return (
         <section id="cocktails" className="noisy">
-            <img src="/images/cocktail-left-leaf.png" alt="l-leaf" id="c-left-leaf"/>
-            <img src="/images/cocktail-right-leaf.png" alt="r-leaf" id="c-right-leaf"/>
+            <img src="/images/cocktail-left-leaf.png" alt="l-leaf" id="c-left-leaf" />
+            <img src="/images/cocktail-right-leaf.png" alt="r-leaf" id="c-right-leaf" />
 
             <div className="list">
                 <div className="popular">
-                    <h2>Most Popular Cocktails:</h2>
+                    <h2>Most popular cocktails:</h2>
 
                     <ul>
-                        {cocktailLists.map(({name, country, detail, price}) => (
+                        {cocktailLists.map(({ name, country, detail, price }) => (
                             <li key={name}>
                                 <div className="md:me-28">
                                     <h3>{name}</h3>
                                     <p>{country} | {detail}</p>
                                 </div>
-                                <span> - {price}</span>
-
+                                <span>- {price}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
+
                 <div className="loved">
-                    <h2>Most Loved Mocktails:</h2>
+                    <h2>Most loved mocktails:</h2>
 
                     <ul>
-                        {mockTailLists.map(({name, country, detail, price}) => (
+                        {mockTailLists.map(({ name, country, detail, price }) => (
                             <li key={name}>
-                                <div className="    me-28">
+                                <div className="me-28">
                                     <h3>{name}</h3>
                                     <p>{country} | {detail}</p>
                                 </div>
-                                <span> - {price}</span>
-
+                                <span>- {price}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
-
             </div>
         </section>
     );

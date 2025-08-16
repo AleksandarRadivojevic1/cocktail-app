@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <nav>
             <div>
-                <a href="#home" className="flex items-center gap-2 mx-4">
+                <a href="#hero" className="flex items-center gap-2 mx-4">
                     {/*<img src="/images/logo.png" alt="logo"/>*/}
                     <p>
                         Murphy's Pub
