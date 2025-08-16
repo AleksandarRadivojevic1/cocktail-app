@@ -69,6 +69,7 @@ const Hero = () => {
                 tl.to(videoRef.current, {
                     currentTime: videoRef.current.duration,
                 });
+                
             };
         } else {
             //Loop on mobile devices
